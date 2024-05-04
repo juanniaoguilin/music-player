@@ -1,2 +1,22 @@
-# music-player
-编写一个C#程序，实现音乐文件的播放功能。1. 程序应能够读取MP3文件，并播放其中的音频。2. 程序应能够处理可能出现的异常，如文件不存在、文件读取错误等。3. 程序应具有良好的用户界面，方便用户进行操作。4. 程序应具有良好的兼容性，能在不同版本的C#中正常运行。提示：此功能可以使用WindowsMediaPlayer控件5. 程序应能够播放ogg文件。6. 程序应能够处理可能出现的异常，如文件不存在、文件读取错误等。7. 程序应具有良好的用户界面，方便用户进行操作。8. 程序应具有良好的兼容性，能在不同版本的C#中正常运行。提示：此功能可以使用Nuget程序包中的Naudi.Vorbis控件
+NAudio.Vorbis    [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/naudio/Vorbis?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+-------
+
+NAudio.Vorbis is a convenience wrapper to enable easy integration of [NVorbis](https://github.com/ioctlLR/NVorbis) into NAudio projects.
+
+To use:
+
+```cs
+// add a reference to NVorbis.dll
+// add a reference to NAudio.Vorbis.dll
+
+using (var vorbisStream = new NAudio.Vorbis.VorbisWaveReader("path/to/file.ogg"))
+using (var waveOut = new NAudio.Wave.WaveOutEvent())
+{
+    waveOut.Init(vorbisStream);
+    waveOut.Play();
+   
+    // wait here until playback stops or should stop
+}
+```
+
+If you have any questions or comments, feel free to join us on Gitter.  If you have any issues or feature requests, please submit them in the issue tracker.
